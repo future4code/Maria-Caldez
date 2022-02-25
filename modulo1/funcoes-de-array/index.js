@@ -202,26 +202,15 @@ console.log(pokemonsNomes)
 
 // b) Crie um novo array apenas com os tipos dos pokémons, sem repetição
 
-const arrayTipos = pokemons.filter ((pokemon) => {
-    return pokemons.indexOf(pokemon)
-}).map((pokemon) => {
-      
-    return  pokemon.tipo
-
+const arrayTipos = pokemons.map((pokemon) => {
+    return pokemon.tipo
 })
 
-console.log(arrayTipos)
+const novoArray = new Set(arrayTipos)
+const arraySemRepetir = [...novoArray]
 
+console.log(arraySemRepetir)    
 
-// const pokemonsTipoAgua = pokemons.filter((pokemon)=>{
-//     return pokemon.tipo === "água"
-// }).map((pokemon)=> console.log(pokemon.nome))
-
-//   const novoArrayC = usuarios.filter((item, index, array) => {
-//      return item.apelido !== "Chijo"
-//   })
-  
-//   console.log(novoArrayC)
 
 
 
