@@ -83,7 +83,7 @@
 
 // 2
 // 2. Considere que você tenha acesso a um `array`  (chamado de 'array original') que é composto somente de números.
-//  Baseando-se nisso, crie uma função para cada um dos itens abaixo, realizando as operações pedidas:
+//  Baseando-se nisso, crie uma ção para cada um dos itens abaixo, realizando as operações pedidas:
     
     
     
@@ -96,7 +96,7 @@
 
 let arrayOriginal = [1, 2, 3, 4, 5, 6, 7]
 
-function imprimirArray (array){
+ction imprimirArray (array){
 for (let numeros of array){
     console.log(numeros)
     }
@@ -105,7 +105,7 @@ imprimirArray(arrayOriginal)
 
 //     b) Escreva um programa que **imprime** cada um dos valores do array original divididos por 10
 
-function dividirArray (array){
+ction dividirArray (array){
     for (let numeros of array){
         let resultado = numeros / 10
         console.log(resultado)
@@ -116,7 +116,7 @@ dividirArray(arrayOriginal)
 
 //     c) Escreva um programa que **crie** um novo array contendo, somente, os números pares do array original e
 //      **imprima** esse novo array
-function restoArray (array){
+ction restoArray (array){
     let novoArray =[]
     for (let numeros of array){
         if (numeros % 2 === 0) {
@@ -134,7 +134,7 @@ restoArray(arrayOriginal)
 //     d) Escreva um programa que **crie** um novo array contendo strings, da seguinte forma: 
 //     "O elemento do índobrigada!!ex `i` é: `numero`". Depois, **imprima** este novo array.
 
-function posicaoArray (array){
+ction posicaoArray (array){
     for (let numeros of array){
         console.log("O elemento do índex", array.indexOf(numeros), "é ", numeros )
         }
@@ -144,7 +144,7 @@ function posicaoArray (array){
     
 //     e) Escreva um programa que imprima no console o maior e o menor números contidos no array original
 
-function descobraMaiorOuMenor (array){
+ction descobraMaiorOuMenor (array){
     let maior = array [0]
     let menor = array [0]
     for (let numeros of array){
