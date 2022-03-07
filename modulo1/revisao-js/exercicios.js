@@ -15,11 +15,15 @@ let array2 = [1,2,3,4,5]
 function retornaArrayInvertido(array) {
   return array.reverse(array)
 }
-console.log (retornaArrayInvertido (array2))
+
 // EXERCÍCIO 03
+let array3 = [8,1,2,3,6,7,4,5]
+
 function retornaArrayOrdenado(array) {
-  
+  return array.sort((a,b) => a -b)
 }
+
+console.log(array3)
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
