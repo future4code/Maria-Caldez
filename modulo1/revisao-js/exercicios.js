@@ -23,12 +23,23 @@ function retornaArrayOrdenado(array) {
   return array.sort((a,b) => a -b)
 }
 
-console.log(array3)
 
 // EXERCÍCIO 04
-function retornaNumerosPares(array) {
-  
+let array4 = [1,2,3,4,5,6,7,8]
+
+function retornaNumerosPares (array){
+let numeroPar = []
+   for (let i = 0; i < array.length; i++){
+      if (array[i] % 2 === 0){
+         array.push (array[i])
+      }
+   }
+   return numeroPar
+
 }
+
+console.log(retornaNumerosPares (array4))
+
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
