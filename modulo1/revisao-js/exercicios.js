@@ -20,8 +20,9 @@ function retornaArrayInvertido(array) {
 let array3 = [8,1,2,3,6,7,4,5]
 
 function retornaArrayOrdenado(array) {
-  return array.sort((a,b) => a -b)
-}
+  return array.sort((a,b) => a -b)}
+
+
 
 
 // EXERCÍCIO 04
@@ -38,7 +39,6 @@ function retornaNumerosPares (array){
 
 }
 
-console.log(retornaNumerosPares (array4))
 
 
 // EXERCÍCIO 05
@@ -54,11 +54,22 @@ function retornaNumerosParesElevadosADois(array) {
    return numeroPar
 }
 
-console.log(retornaNumerosParesElevadosADois(array5))
+
 // EXERCÍCIO 06
+let array6 = [1,2,3,4,5,6,7,8]
+
 function retornaMaiorNumero(array) {
-  
+   let maximo = 0
+   for (let i = 0; i < array.length; i++){
+      if (maximo < array[i]){
+         maximo = array[i]
+      }   
+
+   }
+return maximo
 }
+
+console.log(retornaMaiorNumero(array6))
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
