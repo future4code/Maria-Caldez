@@ -139,7 +139,12 @@ td button:hover{
     height: 100px;
 }
 
-
+.container-do-search input {
+    /* border-top: 0px;
+    border-left: 0px;
+    border-right: 0px; */
+    border-bottom: 5 px;
+} 
 
 #back-button {
     background-color: white;
