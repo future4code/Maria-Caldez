@@ -69,9 +69,15 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
-    padding: 70px 0px;
+    padding: 70px 10px;
+    text-align: center;
 }
 
+#container-de-descricao p {
+    display: block;
+    width: 200px;
+    margin: auto;
+}
 
 
 #container-de-descricao>ol {
