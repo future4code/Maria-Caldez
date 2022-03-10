@@ -129,6 +129,11 @@ td button {
     
 }
 
+td button:hover{
+    background-color: hsl(59, 89%, 44%)
+} 
+
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
@@ -147,6 +152,9 @@ td button {
     
 }
 
+#back-button:active{
+ color: white;   
+}
 #back-button:hover {
     background-color: #635a3d
 }
