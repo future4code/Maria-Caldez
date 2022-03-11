@@ -61,10 +61,16 @@ div img {
 }
 
 .icone {
-    height: 15px;
+    height: 12px;
+    width: 12px;
     background-color: rgb(255, 255, 255);
 
 }
+
+/* .icone:active{
+    
+} */
+
 
 
 /** 
@@ -76,8 +82,9 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
-    padding: 70px 10px;
+    padding: 100px 10px;
     text-align: center;
+    height: auto;
 }
 
 #container-de-descricao p {
@@ -89,10 +96,12 @@ div img {
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    list-style-position: inside;
 }
 
 #container-para-comprar {
     background-color: #e7eb90;
+    height:auto;
 }
 
 #container-para-comprar>p {
@@ -119,6 +128,7 @@ table {
     display: block;
     padding: 0% 35% 0% 20%;
     text-align: center;
+    
 }
 
 td {
