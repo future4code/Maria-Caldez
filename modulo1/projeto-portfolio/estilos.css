@@ -11,7 +11,7 @@ body {
 
 /* superior */
  
- #superior {
+ #header {
     width: 100%;
     height: 100vh;
 
@@ -108,6 +108,18 @@ nav ul li a:hover:after{
     margin-top: 25px;
     margin-bottom: 30px;
 }
+
+#labenu a{
+    color: #272422;
+    
+}
+
+#labenu :hover{
+    color: #d8c231;
+    transition: 0.30s;
+}
+
+
 /*foto  */
 
 .contenedor {
@@ -138,7 +150,7 @@ nav ul li a:hover:after{
 
 /* rodape */
 
-#inferior {
+#footer {
     margin: 0;
 	padding: 0;
     max-width: 100%;
@@ -154,14 +166,81 @@ nav ul li a:hover:after{
     
 }
 
-#inferior:hover {
+#footer:hover {
     
     background-color:#d8c231;
     
 }
 
-/* sobre mim */
+/* projeto: tem estilos da parte foto index porque 
+é parte do contenedor*/
 
+/* texto imagen poker */
+#imagen-poker img{
+    
+    height: 200px;
+    width: 200px;
+    left: 350%;
+    top: 2%;
+    display: inline;
+}
+
+
+.presentacion-poker{
+    position: absolute;
+    top: 30%;
+    left: 13%;
+    display: inline-block;
+    width: 45%;
+    
+}
+
+.presentacion-poker #blackjack{
+    color: #272422;
+    font-size: 30px;
+    letter-spacing: 4px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.presentacion-poker #blackjack:hover{
+    color: #d8c231;
+    transition: 0.30s;
+}
+
+/* texto imagen dazenda platzi */
+
+#imagen-platzi img{
+    height: 200px;
+    width: 200px;
+    left: 350%;
+    top: 40%;
+    display: inline;
+    
+}
+
+.presentacion-fazenda{
+    position: absolute;
+    top: 70%;
+    left: 13%;
+    display: inline-block;
+    width: 45%;
+
+    
+}
+
+.presentacion-fazenda #fazenda{
+    color: #272422;
+    font-size: 30px;
+    letter-spacing: 4px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.presentacion-fazenda #fazenda:hover{
+    color: #d8c231;
+    transition: 0.30s;
+}
 
 /* colores */
 /* 
