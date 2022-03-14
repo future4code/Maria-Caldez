@@ -242,6 +242,19 @@ nav ul li a:hover:after{
     transition: 0.30s;
 }
 
+
+
+#a {
+
+    color: #d8c231;
+    position: fixed;
+    bottom: 0;
+}
+
+div > p {
+    color: aqua;
+}
+
 /* colores */
 /* 
 #c09173
