@@ -1,0 +1,269 @@
+
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+	padding: 0;
+    background-color: rgba(255, 255, 255, 0.993) ;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* superior */
+ 
+ #header {
+    width: 100%;
+    height: 100vh;
+
+} 
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 100px;
+    
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+nav ul li a{
+    color: #1d1d24;
+    position: relative;
+    padding: 5px 0;
+}
+nav ul li a:hover{
+    color: #d8c231;
+}
+nav ul li a:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #d8c231;
+    transition: .3s;
+    bottom: 0;
+}
+nav ul li a:hover:after{
+    width: 100%;
+}
+.btn{
+    color: #d8c231;
+    font-size: 16px;
+    letter-spacing: 2px;
+    padding: 16px 40px;
+    border-radius: 500px;
+    display: inline-block;
+    font-weight: 500;
+    transition: all .4s ease-in-out;
+    background-size: 152% 100%;
+    background: rgba(255, 255, 255, 0.993);
+    border: 2px solid #d8c231;
+}
+.btn:hover{
+    background: rgba(255, 255, 255, 0.993);
+    border-color: #272422;
+    color: #272422;
+}
+
+
+/* NOMBRE Y DESCRI */
+
+.nombre{
+    position: absolute;
+    top: 35%;
+    left: 35%;
+}
+
+.nombre .hola{
+    color: #272422;
+    font-size: 15px;
+    letter-spacing: 4px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.nombre h1{
+    color: #272422;
+    font-size: 55px;
+    font-weight: 900;
+    line-height: 60px;
+    text-transform: inherit;
+    width: 70%;
+    
+}
+
+.nombre h1 span:hover{
+    color:#d8c231;
+    transition: 1s;
+    
+}
+.nombre p{
+    width: 86%;
+    color: #757575;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+#labenu a{
+    color: #272422;
+    
+}
+
+#labenu :hover{
+    color: #d8c231;
+    transition: 0.30s;
+}
+
+
+/*foto  */
+
+.contenedor {
+    display: inline;
+    position:absolute;
+    height: 100%;
+    width: 190px;
+    margin: 0px 0px;
+    left: 10%;
+    top: 25%;
+    
+  }
+  
+  .contenedor img {
+    position: absolute;
+    transition: opacity 0.50s ease-in-out;
+    height: 320px;
+    width: 320px;
+  }
+  
+  .contenedor img.top:hover {
+    opacity: 0;
+  }
+
+
+
+
+
+/* rodape */
+
+#footer {
+    margin: 0;
+	padding: 0;
+    max-width: 100%;
+    background-color:#d8c231;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 1px;
+    height: 30px;
+    z-index: 0;
+    text-align: center;
+    line-height: 43px;
+    
+}
+
+#footer:hover {
+    
+    background-color:#d8c231;
+    
+}
+
+/* projeto: tem estilos da parte foto index porque 
+é parte do contenedor*/
+
+/* texto imagen poker */
+#imagen-poker img{
+    
+    height: 200px;
+    width: 200px;
+    left: 350%;
+    top: 2%;
+    display: inline;
+}
+
+
+.presentacion-poker{
+    position: absolute;
+    top: 30%;
+    left: 13%;
+    display: inline-block;
+    width: 45%;
+    
+}
+
+.presentacion-poker #blackjack{
+    color: #272422;
+    font-size: 30px;
+    letter-spacing: 4px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.presentacion-poker #blackjack:hover{
+    color: #d8c231;
+    transition: 0.30s;
+}
+
+/* texto imagen dazenda platzi */
+
+#imagen-platzi img{
+    height: 200px;
+    width: 200px;
+    left: 350%;
+    top: 40%;
+    display: inline;
+    
+}
+
+.presentacion-fazenda{
+    position: absolute;
+    top: 70%;
+    left: 13%;
+    display: inline-block;
+    width: 45%;
+
+    
+}
+
+.presentacion-fazenda #fazenda{
+    color: #272422;
+    font-size: 30px;
+    letter-spacing: 4px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.presentacion-fazenda #fazenda:hover{
+    color: #d8c231;
+    transition: 0.30s;
+}
+
+
+
+#a {
+
+    color: #d8c231;
+    position: fixed;
+    bottom: 0;
+}
+
+div > p {
+    color: aqua;
+}
+
+/* colores */
+/* 
+#c09173
+#ecd4c6
+#e3b155
+#272422
+#f4e7d5
+#84b09b
+#d8c231
+#c9b430
+
+*/
