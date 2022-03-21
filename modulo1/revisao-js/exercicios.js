@@ -73,6 +73,17 @@ console.log(retornaMaiorNumero(array6))
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
+   let maiorNumero = 0
+   let maiorDivisivelPorMenor= 0
+   let diferenca= 0
+
+   if (num1 > num2){
+      maiorNumero = num1
+   }else{ 
+      maiorNumero = num2
+   }
+
+   
 
 }
 
