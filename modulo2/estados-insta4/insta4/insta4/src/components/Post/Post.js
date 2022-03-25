@@ -44,7 +44,6 @@ class Post extends React.Component {
   state = {
     curtido: false,
     numeroCurtidas: 0,
-    // linea 54
     comentando: false,
     numeroComentarios: 0
   }
@@ -62,7 +61,6 @@ class Post extends React.Component {
   
     })
 
-//porque tem console, e não tem operação de soma para alterar numeroCurtidas no contador
   }
 
 
@@ -81,7 +79,6 @@ class Post extends React.Component {
 
   render() {
     let iconeCurtida
-// é o mesmo colocar if (this.state.curtido===true)
     if(this.state.curtido) { 
       iconeCurtida = iconeCoracaoPreto
     } else {
@@ -92,7 +89,6 @@ class Post extends React.Component {
 
     if(this.state.comentando) {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
-//  aoEnviar=... é uma variavel que não precisou ser declarada antes, onde mais ela é chamada
     }
 
     return <PostContainer>
@@ -108,12 +104,10 @@ class Post extends React.Component {
           icone={iconeCurtida}
           onClickIcone={this.onClickCurtida}
           valorContador={this.state.numeroCurtidas}
-          // linea 54
         />
 
         <IconeComContador
           icone={iconeComentario}
-          // porque aparece opaco iconeComentario. porque ele não foi declarado antes 
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
         />

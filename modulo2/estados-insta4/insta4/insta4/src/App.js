@@ -8,28 +8,114 @@ const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `
+const EstilosInput = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+`;
+
+
+
 
 class App extends React.Component {
+  state = {
+    
+    feed: [
+    {
+      id: 0,
+      nomeUsuario:'Paulinha',
+      fotoUsuario:'https://picsum.photos/50/50',
+      fotoPost:'https://picsum.photos/200/150'
+    },
+
+    {
+      id: 2,
+      nomeUsuario:'Simone',
+      fotoUsuario:'https://picsum.photos/50/57',
+      fotoPost:'https://picsum.photos/200/157'
+    },
+
+    {
+      id: 3,
+      nomeUsuario:'Mika',
+      fotoUsuario:'https://picsum.photos/50/64',
+      fotoPost:'https://picsum.photos/200/164'
+    }
+    ],
+
+    id: 0,
+    nomeUsuario: "",
+    fotoUsuario: "",
+    fotoPost: "",
+
+  };
+
+  onChangeId = (event) => {
+  this.setState({ id: event.target.value });
+  };
+
+  onChangeNomeUsuario = (event) => {
+    this.setState({ nomeUsuario: event.target.value });
+  };
+
+  onChangeFotoUsuario = (event) => {
+    this.setState({ fotoUsuario: event.target.value });
+  };
+
+  onChangeFotoPost = (event) => {
+    this.setState({ fotoPost: event.target.value });
+  };
+
+  onClickPost = () => {
+    const novaPostagem = {
+      id: this.state.id,
+      nomeUsuario: this.state.nomeUsuario,
+      fotoUsuario: this.state.fotoUsuario,
+      fotoPost: this.state.fotoPost,
+    };
+
+    const novoArray = [...this.state.feed];
+    novoArray.push(novaPostagem);
+
+    this.setState({ feed: novoArray });
+  };
+
+
   render() {
+
+    let renderizaNoFeed = this.state.feed.map((post) => {
+      return (
+        <Post
+        id={post.id}
+        nomeUsuario={post.nomeUsuario}
+        fotoUsuario={post.fotoUsuario}
+        fotoPost={post.fotoPost}
+        />
+      );
+    });
+
     return (
       <MainContainer>
-        <Post
-          nomeUsuario={'paulinha'}
-          fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
-        />
+          <EstilosInput>
+            <label>ID</label>
+            <input onChange={this.onChangeId} value={this.state.id} />
 
-        <Post
-          nomeUsuario={'Belén'}
-          fotoUsuario={'https://scontent.ffln1-1.fna.fbcdn.net/v/t31.18172-8/16422735_707581702756439_1848957678187567199_o.jpg?_nc_cat=102&ccb=1-5&_nc_sid=174925&_nc_eui2=AeGqm40RnMNkSISR7WdliEQRRxz11t5PPOxHHPXW3k887DX1rE9xISuOb10uzSGb_6FHNH7qSjGLZz7tABZ_MHMU&_nc_ohc=4aTiKo1HmFcAX-hqjNj&_nc_ht=scontent.ffln1-1.fna&oh=00_AT8ukmbyCUY_qW5nlpZA5bfOt2RXmKpH3JP1u-rVYZfimw&oe=62629404'}
-          fotoPost={'https://definicion.de/wp-content/uploads/2009/12/paisaje-1.jpg'}
-        />
-          
-        <Post
-          nomeUsuario={'María'}
-          fotoUsuario={'https://scontent.ffln1-1.fna.fbcdn.net/v/t1.6435-9/51495620_1150951125086159_1195940047367438336_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeHbX8KWoUSISStqgiziTpk8GVOJRWsL_TAZU4lFawv9MPahAQk83h2pBJKEl-48h3lgkTIdHfCbXS34Ad15i3C0&_nc_ohc=ZUZDIM7Ds84AX-Q4pzB&_nc_ht=scontent.ffln1-1.fna&oh=00_AT-GpsOVlfp_Xqn6wKx5uNyKUt_aWuNHQgzYky0op3QUVg&oe=62612834'}
-          fotoPost={'https://i.pinimg.com/550x/05/12/06/05120683bf99b82b418d6368a37e3e42.jpg'}
-        />
+            <label>Nome Usuario</label>
+            <input onChange={this.onChangeNomeUsuario} value={this.state.nomeUsuario} />
+
+            <label>Foto de Perfil</label>
+            <input onChange={this.onChangeFotoUsuario} value={this.state.fotoUsuario} />
+
+            <label>Foto Post</label>
+            <input onChange={this.onChangeFotoPost} value={this.state.fotoPost} />
+
+            <button onClick={this.onClickPost}>Publicar postagem</button>
+          </EstilosInput>
+
+        {renderizaNoFeed}
       </MainContainer>
     );
   }
