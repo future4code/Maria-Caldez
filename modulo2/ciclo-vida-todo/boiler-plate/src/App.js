@@ -101,7 +101,7 @@ class App extends React.Component {
 
 
   render() {
-
+    
     const listaFiltrada = this.state.tarefas.filter(tarefa => {
       switch (this.state.filtro) {
         case 'pendentes':
