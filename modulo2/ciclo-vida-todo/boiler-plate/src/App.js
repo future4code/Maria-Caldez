@@ -43,7 +43,7 @@ class App extends React.Component {
     }
 
   componentDidUpdate() {
-    localStorage.setItem("texto",JSON.stringify(this.state.tarefas))
+    localStorage.setItem("tarefas",JSON.stringify(this.state.tarefas))
 
   };
 
@@ -56,9 +56,9 @@ class App extends React.Component {
 
   
   TarefasSalvasNoLocalStorage = () =>{
-    const tarefasNoLocalStorage= localStorage.getItem("texto")
-    console.log(tarefasNoLocalStorage)
-    this.setState({"texto":JSON.parse(tarefasNoLocalStorage)})
+    const tarefasNoLocalStorageString= localStorage.getItem("tarefas")
+    const tarefasNoLocalStorageObjeto= JSON.parse(tarefasNoLocalStorageString)
+    this.setState({tarefas:tarefasNoLocalStorageObjeto})
 
   }
 
@@ -101,6 +101,7 @@ class App extends React.Component {
 
 
   render() {
+
     const listaFiltrada = this.state.tarefas.filter(tarefa => {
       switch (this.state.filtro) {
         case 'pendentes':
@@ -118,6 +119,7 @@ class App extends React.Component {
         <InputsContainer>
           <input value={this.state.inputValue} onChange={this.onChangeInput}/>
           <button onClick={this.criaTarefa}>Adicionar</button>
+          {/* <button onClick={this.TarefasSalvasNoLocalStorage}>Gravar</button> */}
         </InputsContainer>
         <br/>
 
