@@ -49,8 +49,11 @@ class App extends React.Component {
 
 
   componentDidMount() {
-
-    this.TarefasSalvasNoLocalStorage()
+    if (localStorage.getItem("tarefas")){
+      const tarefasNoLocalStorageString= localStorage.getItem("tarefas")
+      const tarefasNoLocalStorageObjeto= JSON.parse(tarefasNoLocalStorageString)
+      this.setState({tarefas:tarefasNoLocalStorageObjeto})
+    }
 
   };
 
