@@ -81,7 +81,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Me llaman Calle\", \r\n    \"artist\": \"Manu Chao\",\r\n    \"url\": \"https://www.youtube.com/watch?v=2j7G4vxoDF8&ab_channel=ManuChao\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Loca\", \r\n    \"artist\": \"Chico Trujillo\",\r\n    \"url\": \"https://www.youtube.com/watch?v=ZwtcyXl5y9c&ab_channel=SantaGemita\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -105,7 +105,7 @@
 					"variable": [
 						{
 							"key": "playlistId",
-							"value": "30876b70-6653-451e-bf9d-393843696cd2"
+							"value": "ae8edb38-181f-483e-b8d6-7a7652cdef1f"
 						}
 					]
 				}
@@ -140,7 +140,7 @@
 					"variable": [
 						{
 							"key": "playlistId",
-							"value": "fa0999ed-9f5b-4b6d-bedf-bed867124cca"
+							"value": "28d566fe-0c54-4921-aa7e-9ffb5835afc1"
 						}
 					]
 				}
