@@ -62,7 +62,9 @@ export default class Cadastro extends React.Component {
   
         <button onClick= {this.criarUsuario} >Criar Usuario</button>
         <div>
-        <button onClick={()=>this.props.mudarPagina("Lista")}>trocar tela</button>
+        {/* <button onClick={()=>this.props.mudarPagina("Lista")}>trocar tela</button> */}
+        <button onClick={this.props.irParaLista} >Trocar Tela</button>
+
         </div>
         
      

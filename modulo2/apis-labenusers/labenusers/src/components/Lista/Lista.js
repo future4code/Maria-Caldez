@@ -1,7 +1,25 @@
 import React from 'react';
 import axios from 'axios';
 import styled from "styled-components";
-import userEvent from '@testing-library/user-event';
+
+const Container =  styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  padding: 15px;
+`
+
+const Listado =  styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  padding: 15px;
+`
+
 
 
 const requisitoHeaders = {
@@ -44,7 +62,7 @@ export default class Lista extends React.Component {
                 requisitoHeaders
                 )
                 .then (() =>{
-                    alert("Usuário apagado")
+                    alert("Tem certeza de que deseja deletar?")
                     this.pegarLista()
                 })
                 .catch( error => {
@@ -55,14 +73,14 @@ export default class Lista extends React.Component {
   
     render(){
       return(
-      <div>
+      <Container>
           <ul>
               {this.state.listaUsuario.map (usuario => {
                   return (
-                    <li key ={usuario.id} > 
+                    <Listado key ={usuario.id} > 
                     <span>{usuario.name}</span>
                   <button onClick={()=> this.apagarUsuario(usuario.id)}>Apagar</button>
-              </li>
+              </Listado>
                   )
               })}
               
@@ -73,9 +91,11 @@ export default class Lista extends React.Component {
           <button>Salvar edição</button>
 
           <div>
-              <button onClick={()=> this.props.mudarPagina("Cadastro")} >Trocar Tela</button>
+              {/* <button onClick={()=> this.props.mudarPagina("Cadastro")} >Trocar Tela</button>  */}
+              <button onClick={this.props.irParaCadastro} >Trocar Tela</button>
+
           </div>
-      </div>
+      </Container>
       );
     }
   
