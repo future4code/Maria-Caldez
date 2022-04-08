@@ -14,18 +14,19 @@ const authorization = {
 
 
 export default class Lista extends React.Component {
-
+// 
   state = {
     playlists: [],
     id: "",
     inputName: "",
+   
 
   }
-
+// 
   componentDidMount(){
     this.listaPlaylist()
   }
-
+// 
   listaPlaylist = () =>{
 
     axios
@@ -39,7 +40,7 @@ export default class Lista extends React.Component {
           })
 
   }
-
+// 
   eliminarPlaylist = (id) => {
     
       axios
@@ -49,7 +50,7 @@ export default class Lista extends React.Component {
             )
 
             .then(() => {
-              alert("Usuário apagado com sucesso!");
+              alert("Lista apagada com sucesso!");
               this.listaPlaylist();
               
             })
@@ -58,6 +59,7 @@ export default class Lista extends React.Component {
             });
         
     }
+  // 
 
     CriarPlaylist = () =>{
       const body = {
@@ -80,31 +82,30 @@ export default class Lista extends React.Component {
               alert(err.response.data.message);
             });
         };
+// 
         onChangeCriarPlaylist = (e) => {
           this.setState({
             inputName: e.target.value
           });
     }
+// 
+
  
-    detalhesPlaylist = (id) => {
-    
-        return (this.state.id === id)
-    
-    }
 
     render() {
+
+
       return (
         <Container>
             <div>
             <h2>Playlist</h2>
 
             <ul>
-            {this.state.playlists.length === 0 && <div>No hay listas para mostrar</div>}
+            {this.state.playlists.length === 0 && <div>Não tem listas para mostrar</div>}
             {this.state.playlists.map ((playlist)=>{
               return (
                 <li key= {playlist.id}>
-                    <p onClick={() => this.detalhesPlaylist(playlist.id)}>{playlist.name}</p>
-                    <button >Entrar</button>
+                    <p key= {playlist.id} onClick ={()=> this.props.goToDetalhes(playlist.id)}>{playlist.name}</p>
                     <button onClick={() => this.eliminarPlaylist(playlist.id)}>Apagar</button>
 
                 </li>
@@ -125,14 +126,7 @@ export default class Lista extends React.Component {
                 onChange={this.onChangeCriarPlaylist}
               />
               
-                <button onClick={this.CriarPlaylist}>Adicionar</button>
-
-              <Detalhes
-                idPlaylist = {this.state.id}
-                namePlaylist = {this.state.inputName}
-                detalhesPlaylist = {this.detalhesPlaylist}
-                
-              />
+                <button onClick={this.CriarPlaylist}>Adicionar</button>        
             </div>
         </Container>
    
