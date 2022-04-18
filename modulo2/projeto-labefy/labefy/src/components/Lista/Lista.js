@@ -1,8 +1,15 @@
 import React from "react";
 import axios from "axios";
-import Detalhes from "../Detalhes/Detalhes";
-import styled from "styled-components";
-import { Container } from "./styled";
+import 
+{ Container,
+ ContainerLista, 
+ Card, 
+ Titulo, 
+ TituloPlaylist,
+ ContainerCard, 
+ BotaoApagar, 
+ BotaoAdicionar,
+ ContainerTitulo } from "./styled";
 
 
 const authorization = {
@@ -96,25 +103,25 @@ export default class Lista extends React.Component {
 
 
       return (
-        <Container>
-            <div>
-            <h2>Playlist</h2>
+      <Container>
+        <ContainerLista>
+            <ContainerTitulo>
+            <Titulo>Labefy</Titulo>
+            </ContainerTitulo>
+            <TituloPlaylist>Playlist</TituloPlaylist>
 
-            <ul>
+            <ContainerCard>
             {this.state.playlists.length === 0 && <div>Não tem listas para mostrar</div>}
             {this.state.playlists.map ((playlist)=>{
               return (
-                <li key= {playlist.id}>
+                <Card key= {playlist.id}>
                     <p key= {playlist.id} onClick ={()=> this.props.goToDetalhes(playlist.id)}>{playlist.name}</p>
-                    <button onClick={() => this.eliminarPlaylist(playlist.id)}>Apagar</button>
-
-                </li>
-                
+                    <BotaoApagar onClick={() => this.eliminarPlaylist(playlist.id)}>Apagar</BotaoApagar>
+                </Card>        
               )
             }) }
-                
-            </ul>
-            </div>
+            </ContainerCard>
+            
 
             <div>
               <h4>Crie uma nova playlist</h4>
@@ -126,10 +133,10 @@ export default class Lista extends React.Component {
                 onChange={this.onChangeCriarPlaylist}
               />
               
-                <button onClick={this.CriarPlaylist}>Adicionar</button>        
+                <BotaoAdicionar onClick={this.CriarPlaylist}>Adicionar</BotaoAdicionar>        
             </div>
-        </Container>
-   
+        </ContainerLista>
+      </Container>
 
       )
     }

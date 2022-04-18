@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 import styled from "styled-components";
 import Detalhes from "./components/Detalhes/Detalhes";
@@ -46,8 +45,6 @@ export default class App extends React.Component {
     }
 
   }
-
- 
 
 
   render() {
