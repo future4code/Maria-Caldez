@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./styles.css";
 import axios from "axios";
 import PokeCard from "./components/PokeCard/PokeCard";
-
+// tentativa commit
 function App () {
 
   const [pokeList, setPokeList]= useState ([])
