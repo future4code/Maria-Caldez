@@ -1,68 +1,44 @@
+import React, { useState } from "react";
+import axios from "axios";
+import TelaMatch from "./pages/telaMatch/TelaMatch";
+import TelaInicial from "./pages/telaInicial/TelaInicial";
+import styled from "styled-components";
 
-import React, { useState } from 'react'
-import axios from 'axios';
-import TelaMatch from './pages/telaMatch/TelaMatch';
-import TelaInicial from './pages/telaInicial/TelaInicial';
-import styled, {createGlobalStyle} from 'styled-components';
+export const Container = styled.div`
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
 
-
-
-
-
-const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto');
-  body {
-    margin: 0;
-    font-family: Roboto, sans-serif;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
 `
 
-function App () {
-  const [screen, setScreen] = useState ("telaMatch")
-
+function App() {
+  const [screen, setScreen] = useState("telaMatch");
 
   const goToTelaInicial = () => {
-		setScreen("TelaInicial")
-	}
+    setScreen("TelaInicial");
+  };
 
-	const goToTelaMatch = () => {
-    setScreen("TelaMatch")
-  }
- 
-  const selectPage = () =>{
-    switch (screen){
+  const goToTelaMatch = () => {
+    setScreen("TelaMatch");
+  };
+
+  const selectPage = () => {
+    switch (screen) {
       case "TelaInicial":
-        return <TelaInicial
-        goToTelaMatch = {goToTelaMatch}
-        />
+        return <TelaInicial goToTelaMatch={goToTelaMatch} />;
       case "TelaMatch":
-        return <TelaMatch
-        goToTelaInicial = {goToTelaInicial}
-        />
+        return <TelaMatch goToTelaInicial={goToTelaInicial} />;
       default:
-        return <TelaInicial
-        goToTelaMatch = {goToTelaMatch}
-        />
+        return <TelaInicial goToTelaMatch={goToTelaMatch} />;
+    }
+  };
 
-    } 
-  }
-
-
-
-
-
-
-    return (
-      <div>
-      {createGlobalStyle}
+  return (
+    <Container>
       {selectPage()}
-      </div>
-    )
-
+    </Container>
+  );
 }
 
 export default App;
