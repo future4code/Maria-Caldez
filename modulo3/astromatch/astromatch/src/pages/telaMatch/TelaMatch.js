@@ -21,7 +21,7 @@ const getMatchs = () =>{
 
 useEffect(() => {
   getMatchs()
-}, [matchs]);
+}, []);
 
 
 const listMatchs = matchs.map ((match)=>{
