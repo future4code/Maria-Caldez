@@ -1,34 +1,25 @@
 import React from "react";
-import AdminHomePage from "./pages/AdminHomePage/AdminHomePage";
-import ApplicationFormPage from "./pages/ApplicationFormPage/ApplicationFormPage";
-import CreateTripPage from "./pages/CreateTripPage/CreateTripPage";
-import HomePage from "./pages/HomePage/HomePage";
-import ListTripsPage from "./pages/ListTripsPage/ListTripsPage";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import TripDetailsPage from "./pages/TripDetailsPage/TripDetailsPage";
-// import styled from "styled-components";
-// import axios from "axios";
+import { Router } from "./Routes/Router";
+
+import { createGlobalStyle } from 'styled-components';
 
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+  }
+
+`
 
 function App() {
   return (
     <div>
-      <AdminHomePage/>
-      <ApplicationFormPage/>
-      <CreateTripPage/>
-      <HomePage/>
-      <ListTripsPage/>
-      <LoginPage/>
-      <TripDetailsPage/>
-
-
-      
-
-
-      
-      
-      
+      <GlobalStyle/>
+      <Router/>
+        
     </div>
   );
 }
