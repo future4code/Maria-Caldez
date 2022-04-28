@@ -53,7 +53,7 @@ export const Button = styled.button`
 `
 export const ContainerCard = styled.div`
 border: 2px solid black;
-width: 80%;
+width: 90%;
 height: 38%;
 display: flex;
 overflow: auto;
@@ -68,9 +68,9 @@ padding: 2%;
 `
 export const CardPendiente= styled.div`
 border: 1px solid pink;
-min-width: 25%;
-max-width: 25%;
-height: 95%;
+min-width: 35%;
+max-width: 35%;
+height: 90%;
 padding: 1%;
 `
 export const Aprovados= styled.div`

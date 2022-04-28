@@ -66,9 +66,9 @@ export const ContainerCardTrip = styled.div`
 `;
 export const CardTrip = styled.div`
   border: 2px solid green;
-  min-width: 20%;
-  max-width: 20%;
-  height: 55%;
+  min-width: 30%;
+  max-width: 30%;
+  height: 65%;
   padding: 1%;
   margin: 1%;
 

@@ -1,7 +1,11 @@
 import React from "react";
-import { CardTrip } from "./StyledListTripsPage";
+import { useNavigate } from "react-router-dom";
+import { goToApplicationPage } from "../../Routes/coordinator";
+import { Button, CardTrip } from "./StyledListTripsPage";
 
 function CardsTrips(props) {
+const navigate= useNavigate ()
+
   const trip = props.trip;
 
   return (
@@ -11,6 +15,7 @@ function CardsTrips(props) {
       <p>{trip.description}</p>    
       <p><strong>Duração:</strong> {trip.durationInDays}</p>
       <p><strong>Data:</strong> {trip.date}</p>
+      <Button onClick={()=>goToApplicationPage(navigate,trip.id)}>Aplicar</Button>
     </CardTrip>
   );
 }

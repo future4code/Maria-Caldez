@@ -19,27 +19,27 @@ import {
 } from "./StyledAdminHomePage";
 
 function AdminHomePage() {
-  const [tripsData, setTripsData]= useState ([])
-  useProtect()
-// router
-const navigate= useNavigate ()
-// axio
-const getTripsData = () => {
-  axios
+  const navigate = useNavigate();
+  useProtect();
+
+  const [tripsData, setTripsData] = useState([]);
+  // axio
+  const getTripsData = () => {
+    axios
       .get(`${BASE_URL}/trips`)
       .then((res) => setTripsData(res.data))
-      .catch((err) => console.log(err.response.data.message))
-}
-//hook
-useEffect(() => {
-  getTripsData()
-}, [])
-// map componente filho card
-const ListTrips = tripsData.trips && tripsData.trips.map((trip) => {
-  return <CardTripAdmin key={trip.id} trip={trip} id={trip.id}/>
-})
-
-
+      .catch((err) => console.log(err.response.data.message));
+  };
+  //hook
+  useEffect(() => {
+    getTripsData();
+  }, []);
+  // map componente filho card
+  const ListTrips =
+    tripsData.trips &&
+    tripsData.trips.map((trip) => {
+      return <CardTripAdmin key={trip.id} trip={trip} id={trip.id} />;
+    });
 
   return (
     <Container>
@@ -49,13 +49,10 @@ const ListTrips = tripsData.trips && tripsData.trips.map((trip) => {
           <h1>Labex-Admin</h1>
           <Button onClick={() => goToLoginPage(navigate)}>Logout</Button>
         </Header>
-        <ContainerCardTrip>
-        {ListTrips}
-        </ContainerCardTrip>
+        <ContainerCardTrip>{ListTrips}</ContainerCardTrip>
       </Cont>
     </Container>
   );
 }
 
 export default AdminHomePage;
-

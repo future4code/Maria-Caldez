@@ -29,7 +29,7 @@ function LoginPage() {
         goToAdminHomePage(navigate)
       })
         
-        .catch((error) => console.log(error.response.data))
+        .catch((error) => alert("Usuario não autorizado"))
   };
 
   const onChangeEmail = (event) => {

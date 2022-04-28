@@ -2,7 +2,6 @@ import React from "react";
 import { Button, CardTrip } from "./StyledAdminHomePage";
 import { goToDetailsPage } from "../../Routes/coordinator";
 import { useNavigate } from "react-router-dom";
-import TripDetailsPage from "../TripDetailsPage/TripDetailsPage";
 
 
 
@@ -13,13 +12,13 @@ const navigate= useNavigate ()
   const trip = props.trip;
 
   return (
-    <CardTrip onClick={()=>goToDetailsPage(navigate,trip.id)}>
+    <CardTrip>
         <h4>{trip.name}</h4>
         <p>{trip.description}</p>
         <p>{trip.planet}</p>
         <p><strong>Duração:</strong> {trip.durationInDays}</p>
         <p><strong>Data:</strong> {trip.date}</p>
-
+        <Button onClick={()=>goToDetailsPage(navigate,trip.id)}>Detalhes</Button>
         <Button>Apagar</Button>
     </CardTrip>
   );

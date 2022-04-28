@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { goBack } from "../../Routes/coordinator";
-
+import { BASE_URL } from "../../Constants/Urls";
+import { useParams } from "react-router-dom";
 import {
   Container,
   Cont,
@@ -13,20 +15,32 @@ import {
 } from "./StyledApplicationFormPage";
 
 function ApplicationFormPage() {
+  const params = useParams()
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [applicationText, setApplicationText] = useState("");
   const [profession, setProfession] = useState("");
   const [country, setCountry] = useState("");
   const [body, setBody] = useState ({})
-// router
-  const navigate = useNavigate();
   
+console.log(body)
+
 // para capturar valores
-  const enviarformulario = () => {
-    setBody(novoBody) 
-    console.log(novoBody)
-  }
+    
+const aplyToTrip = () => {
+  axios
+      .post(`${BASE_URL}/trips/${params.id}/apply`,body)
+      .then((res) => alert(res.data.message))
+      .catch((err) => console.log(err.response.data))
+}
+//hook
+useEffect(() => {
+  aplyToTrip()
+}, [body])
+
+const upDateBody = () =>{
   const novoBody = {
     name:  name ,
     age:  age ,
@@ -34,18 +48,10 @@ function ApplicationFormPage() {
     profession: profession,
     country: country,
   };
+  return setBody (novoBody)
+}
 
 
-// const aplyToTrip = () => {
-//   axios
-//       .get(`${BASE_URL}/trips/${id}/apply`)
-//       .then((res) => )
-//       .catch((err) => console.log(err.response.data))
-// }
-// //hook
-// useEffect(() => {
-//   aplyToTrip()
-// }, [])
 
 
   const onChangeName = (event) => {
@@ -78,11 +84,9 @@ function ApplicationFormPage() {
         </Header>
 
         <Form>
-          <Select>
-            <option>Escolha uma viagem</option>
-          </Select>
+
           <Input placeholder="Nome" value={name} onChange={onChangeName} />
-          <Input placeholder="Idade" value={age} onChange={onChangeAge} />
+          <Input placeholder="Idade" value={age} onChange={onChangeAge} type={"number"}/>
           <Input
             placeholder="Texto Candidatura"
             value={applicationText}
@@ -99,7 +103,7 @@ function ApplicationFormPage() {
             onChange={onChangeCountry}
           />
         </Form>
-        <Button onClick={enviarformulario}>Enviar Cadastro</Button>
+        <Button onClick={upDateBody}>Aplicar</Button>
       </Cont>
     </Container>
   );
