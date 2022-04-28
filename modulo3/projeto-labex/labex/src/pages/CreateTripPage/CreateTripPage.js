@@ -1,97 +1,24 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import useProtect from "../../hooks/UseProtect";
+import { goToAdminHomePage, goToLoginPage } from "../../Routes/coordinator";
+import { Container, Cont, Header, Form, Input, Select, Button } from "./StyledCreateTripPage";
 
-import styled from "styled-components";
-
-export const Container = styled.div`
-width: 99vw;
-height: 99vh;
-`
-export const Cont= styled.div`
-width: 100%;
-height: 100%;
-display: flex;
-align-items: center;
-flex-direction: column;
-`
-
-export const Header = styled.div`
-width: 100%;
-height: 15%;
-background-color: #fcc000;
-display: flex;
-align-items: center;
-justify-content: space-between;
-color:  #2a003f;
-letter-spacing: 4px;
-font-size: 1.7rem;
-padding: 1%;
-
-h1{
-  
-}
-`
-
-export const Button = styled.button`
-  color: #fae62d;
-  font-weight: bold;
-  font-size: 1.2rem;
-  border-radius: 5%;
-  padding: 1%;
-  transition: all .1s ease-in-out;
-  background: #2a003f;
-  border: 4px solid #5c197e;
-  margin-right: 5%;
-  margin-left: 5%;
-  box-shadow: rgb(0 0 0 / 50%) 0px 4px 8px 0px;
-    
-  :hover{
-    background: #5c197e;
-    border-color: #2a003f;
-    color: #fcc000;
-    box-shadow: rgb(0 0 0 / 100%) 0px 4px 8px 0px;
-
-
-  }
-`
-export const Form= styled.div`
-width: 50%;
-height: 47%;
-border: 1px solid green;
-margin: 1%;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: flex-start;
-padding: 2%;
-`
-export const Select= styled.select`
-width: 95%;
-height: 8%;
-margin: auto;
-`
-export const Input= styled.input`
-width: 94%;
-height: 8%;
-margin: auto;
-`
 
 
 function CreateTripPage() {
   const navigate= useNavigate ()
-const goBack = () =>{
-    navigate(-1)
-  }
-  const goToLogin = ()=>{
-    navigate("/login")
-  }
+  useProtect()
+
+
+
   return (
     <Container>
       <Cont>
       <Header>
-          <Button onClick={goBack}>Voltar</Button>
+          <Button onClick={()=>goToAdminHomePage(navigate)}>Voltar</Button>
         <h1>Labex-Admin</h1>
-        <Button onClick={goToLogin}>Logout</Button>
+        <Button onClick={()=>goToLoginPage(navigate)}>Logout</Button>
       </Header>
       <h2>Cadastro de novas Viagens</h2>
       <Form>

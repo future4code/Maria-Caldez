@@ -26,7 +26,7 @@ font-size: 1.7rem;
 padding: 1%;
 
 h1{
-  padding-left: 36%;
+  padding-left: 34%;
 }
 `
 export const Button = styled.button`
