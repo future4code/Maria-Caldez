@@ -17,20 +17,24 @@ import {
 function ListTripsPage() {
   const navigate = useNavigate();
 
-  // const tripsList = useRequestData(`${BASE_URL}/trips`,[])
+  const [tripsList] = useRequestData(`${BASE_URL}/trips`,[])
 
-  const [tripsList, setTripsList] = useState([]);
 
-  const getTripsData = () => {
-    axios
-      .get(`${BASE_URL}/trips`)
-      .then((response) => setTripsList(response.data))
-      .catch((err) => console.log(err.response.data.message));
-  };
-  //hook
-  useEffect(() => {
-    getTripsData();
-  }, []);
+console.log(tripsList)
+  // const [tripsList, setTripsList] = useState([]);
+
+
+
+  // const getTripsData = () => {
+  //   axios
+  //     .get(`${BASE_URL}/trips`)
+  //     .then((response) => setTripsList(response.data))
+  //     .catch((err) => console.log(err.response.data.message));
+  // };
+  // //hook
+  // useEffect(() => {
+  //   getTripsData();
+  // }, []);
   // map componente filho card
   const ListTrips =
     tripsList.trips &&

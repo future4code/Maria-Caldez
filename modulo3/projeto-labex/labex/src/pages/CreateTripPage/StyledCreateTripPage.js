@@ -51,7 +51,7 @@ export const Button = styled.button`
 
   }
 `
-export const Form= styled.div`
+export const Form= styled.form`
 width: 50%;
 height: 47%;
 border: 1px solid green;

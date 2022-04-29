@@ -1,43 +1,46 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../Constants/Urls";
-import { useParams, useNavigate } from "react-router-dom";
-import { goToDetailsPage } from "../../Routes/coordinator";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
+import { goBack, goToDetailsPage } from "../../Routes/coordinator";
 import useProtect from "../../hooks/UseProtect";
 import { Button, CardPendiente } from "./StyledTripDetailsPage";
 
 function CardCandidate(props) {
   useProtect()
+  const navigate = useNavigate();
+  
 
   const candidate = props.candidate;
   const candidateId = candidate.id;
   const params = useParams()
-  const navigate = useNavigate();
+  const [upDate, setUpDate] = useState (0)
 
-
-  const decideCandidate = (boolean) => {
+  const decideCandidate = (candidateId,boolean) => {
     const body = { "approve": boolean}
     const token = localStorage.getItem("token");
 
     axios
-      .put(`${BASE_URL}/trips/${params.id}/candidates/${candidateId}/decide`, body ,{
+      .put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/belen-shaw/trips/${params.id}/candidates/${candidateId}/decide`, body ,{
         headers: {
           auth: token,
         },
-      }, body )
+      })
 
       .then(() => {
+       
         alert("deu certo");
-        goToDetailsPage(navigate,params)
+
       })
       .catch((error) => {
-        console.log(error.response.data);
+        navigate(`/admin/trips/${params.id}`)
+        console.log(error.response);
       });
   };
 
   useEffect(() => {
     decideCandidate();
-  }, [candidate]);
+  }, [upDate]);
 
   return (
     <CardPendiente key={candidate.id}>
@@ -62,7 +65,7 @@ function CardCandidate(props) {
         {candidate.applicationText}
       </p>{" "}
       <div>
-        <Button onClick={()=>decideCandidate(true)}>Aprovar</Button> <Button onClick={()=>decideCandidate(false)}>Reprovar</Button>
+        <Button onClick={()=>decideCandidate(candidateId,true)}>Aprovar</Button> <Button onClick={()=>decideCandidate(candidateId,false)}>Reprovar</Button>
       </div>
     </CardPendiente>
   );

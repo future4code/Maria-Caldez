@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { BASE_URL } from "../../Constants/Urls";
 import { useNavigate } from "react-router-dom";
+import useForm from "../../hooks/UseForm";
 import { goToHomePage, goToAdminHomePage } from "../../Routes/coordinator";
 import {
   Container,
@@ -12,33 +13,31 @@ import {
 } from "./StyledLoginPage";
 
 function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  const {form, onChange, cleanFields} = useForm({email:"", password:""})
   
   
-  const onSubmitLogin = () => {
-    const body = {
-      email: email,
-      password:password,
-    }
+  const onSubmitLogin = (event) => {
+    event.preventDefault()
+    
+    const body = form
 
     axios.post(`${BASE_URL}/login`,body)
         .then((response) => {window.localStorage.setItem("token", response.data.token)
         goToAdminHomePage(navigate)
+        cleanFields()
       })
         
         .catch((error) => alert("Usuario não autorizado"))
   };
 
-  const onChangeEmail = (event) => {
-    setEmail(event.target.value);
-  };
-  const onChangePassword = (event) => {
-    setPassword(event.target.value);
-  };
 
+
+  // const onChange = (event) =>{
+  //   const {name, value} = event.target
+  //   setForm({...form, [name]:value});
+  // }
+  console.log(form)
   return (
     <Container>
       <Cont>
@@ -46,20 +45,28 @@ function LoginPage() {
           <h1>Labex-Admin</h1>
           <Button onClick={() => goToHomePage(navigate)}>Home</Button>
         </Header>
-        <ContainerLogin>
+        <ContainerLogin onSubmit={onSubmitLogin}>
           <p>Esta área é destinada para administradores</p>
           <input
+            required
+            name="email"
+            type="email"
             placeholder="Ingresse seu e-mail"
-            value={email}
-            onChange={onChangeEmail}
+            value={form.email}
+            onChange={onChange}
           />
           <input
-            placeholder="Ingresse sua senha"
-            value={password}
+            required
+            name="password"
             type="password"
-            onChange={onChangePassword}
+            placeholder="Ingresse sua senha"
+            value={form.password}
+            onChange={onChange}
+            pattern={"^.{6,}"}
+            title="Sua senha deve ter minimo 6 carateres"
           />
-          <Button onClick={onSubmitLogin}>Login</Button>
+
+          <Button>Login</Button>
         </ContainerLogin>
       </Cont>
     </Container>

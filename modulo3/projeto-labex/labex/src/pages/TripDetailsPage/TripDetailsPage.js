@@ -43,7 +43,7 @@ function TripDetailsPage() {
 
   useEffect (()=>{
     getTripDetails()
-  }, [])
+  }, [listCandidates])
 
   const listCandidates = tripDetails && tripDetails.trip && tripDetails.trip.candidates.map((candidate) => {
     return(

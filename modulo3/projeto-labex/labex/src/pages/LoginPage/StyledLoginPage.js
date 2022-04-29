@@ -52,7 +52,7 @@ export const Button = styled.button`
 
   }
 `
-export const ContainerLogin = styled.div`
+export const ContainerLogin = styled.form`
 border: 1px solid green;
 padding: 2%;
 margin-top: 4%;

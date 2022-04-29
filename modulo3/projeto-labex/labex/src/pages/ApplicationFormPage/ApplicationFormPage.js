@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { goBack } from "../../Routes/coordinator";
 import { BASE_URL } from "../../Constants/Urls";
 import { useParams } from "react-router-dom";
+import useForm from "../../hooks/UseForm";
 import {
   Container,
   Cont,
@@ -14,67 +15,46 @@ import {
   Button,
 } from "./StyledApplicationFormPage";
 
+
 function ApplicationFormPage() {
-  const params = useParams()
+  const params = useParams();
   const navigate = useNavigate();
-
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [applicationText, setApplicationText] = useState("");
-  const [profession, setProfession] = useState("");
-  const [country, setCountry] = useState("");
   const [body, setBody] = useState ({})
+
+  const { form, onChange, cleanFields } = useForm({
+    name: "",
+    age: "",
+    applicationText: "",
+    profession: "",
+    country: "",
+  });
+
+  const upDateBody=(event)=>{
+    event.preventDefault();
+    console.log({form});
+    return setBody(form)
+  }
+
   
-console.log(body)
-
-// para capturar valores
-    
-const aplyToTrip = () => {
-  axios
-      .post(`${BASE_URL}/trips/${params.id}/apply`,body)
-      .then((res) => alert(res.data.message))
-      .catch((err) => console.log(err.response.data))
-}
-//hook
-useEffect(() => {
-  aplyToTrip()
-}, [body])
-
-const upDateBody = () =>{
-  const novoBody = {
-    name:  name ,
-    age:  age ,
-    applicationText: applicationText,
-    profession: profession,
-    country: country,
-  };
-  return setBody (novoBody)
-}
 
 
 
+  const aplyToTrip = () => {
+     axios
+        .post(`${BASE_URL}/trips/${params.id}/apply`, body)
+        .then((res) => {alert(res.data.message)
+        cleanFields()}
+        )
+        .catch((err) => console.log(err.response.data));
+    };
+   //hook
+    useEffect(() => {
+      aplyToTrip();
+    }, []);
 
-  const onChangeName = (event) => {
-    setName(event.target.value);
-  };
+   
 
-  const onChangeAge = (event) => {
-    setAge(event.target.value);
-  };
-
-  const onChangeText = (event) => {
-    setApplicationText(event.target.value);
-  };
-
-  const onChangeProfession = (event) => {
-    setProfession(event.target.value);
-  };
-
-  const onChangeCountry = (event) => {
-    setCountry(event.target.value);
-  };
-  // fin funciones capturar valores
-
+  
   return (
     <Container>
       <Cont>
@@ -83,27 +63,46 @@ const upDateBody = () =>{
           <Button onClick={() => goBack(navigate)}>Voltar</Button>
         </Header>
 
-        <Form>
-
-          <Input placeholder="Nome" value={name} onChange={onChangeName} />
-          <Input placeholder="Idade" value={age} onChange={onChangeAge} type={"number"}/>
+        <Form onSubmit={upDateBody}>
           <Input
+            required
+            name={"name"}
+            placeholder="Nome"
+            value={form.name}
+            onChange={onChange}
+          />
+          <Input
+            required
+            name={"age"}
+            placeholder="Idade"
+            value={form.age}
+            onChange={onChange}
+            type={"number"}
+          />
+          <Input
+            required
+            name={"applicationText"}
             placeholder="Texto Candidatura"
-            value={applicationText}
-            onChange={onChangeText}
+            value={form.applicationText}
+            onChange={onChange}
           />
           <Input
+            required
+            name={"profession"}
             placeholder="Profissão"
-            value={profession}
-            onChange={onChangeProfession}
+            value={form.profession}
+            onChange={onChange}
           />
           <Input
+            required
+            name={"country"}
             placeholder="País"
-            value={country}
-            onChange={onChangeCountry}
+            value={form.country}
+            onChange={onChange}
           />
+        <Button>Aplicar</Button>
+
         </Form>
-        <Button onClick={upDateBody}>Aplicar</Button>
       </Cont>
     </Container>
   );
