@@ -11,7 +11,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
   }
-
+  @media (min-width: 375px) and (max-width: 667px) {
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+    }
 `
 
 function App() {

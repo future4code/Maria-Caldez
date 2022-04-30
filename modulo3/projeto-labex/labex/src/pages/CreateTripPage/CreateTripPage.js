@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import useForm from "../../hooks/UseForm";
 import { BASE_URL } from "../../Constants/Urls";
+import { Planets } from "../../Constants/Planets";
 import { useNavigate } from "react-router-dom";
 import useProtect from "../../hooks/UseProtect";
-import { goToAdminHomePage, goToLoginPage } from "../../Routes/coordinator";
+import { goToAdminHomePage, gologOut } from "../../Routes/coordinator";
 import {
   Container,
   Cont,
@@ -13,11 +14,16 @@ import {
   Input,
   Select,
   Button,
+  Option
 } from "./StyledCreateTripPage";
 
 function CreateTripPage() {
+  const [body, setBody] = useState("")
   const navigate = useNavigate();
   useProtect();
+
+
+
 
   const { form, onChange, cleanFields } = useForm({
     name: "",
@@ -27,9 +33,15 @@ function CreateTripPage() {
     durationInDays: "",
   });
 
-  const CreateTrip = (event) => {
+  const upDateForm = (event)=>{
+  event.preventDefault();
+
+   return setBody(form)
+  }
+
+  const CreateTrip = () => {
     // event.preventDefault();
-    const body = form;
+  
     const token = localStorage.getItem("token");
 
     axios.post(`${BASE_URL}/trips/`, body, {
@@ -42,13 +54,19 @@ function CreateTripPage() {
           cleanFields()
         })
         .catch((error) => {
-          console.log(error.response.data)
+          console.log(error.response.data.message)
         })
   };
 
-  useEffect(() => {
-    CreateTrip();
-  }, [form]);
+useEffect ( ()=>{
+  CreateTrip()
+},[body])
+
+const arrayPlanets = Planets.map ((planet)=>{
+  return(
+    <Option key={planet.nome} value={planet.nome}>{planet.nome}</Option>
+  )
+})
 
   return (
     <Container>
@@ -56,25 +74,27 @@ function CreateTripPage() {
         <Header>
           <Button onClick={() => goToAdminHomePage(navigate)}>Voltar</Button>
           <h1>Labex-Admin</h1>
-          <Button onClick={() => goToLoginPage(navigate)}>Logout</Button>
+          <Button onClick={() => gologOut(navigate)}>Logout</Button>
         </Header>
         <h2>Cadastro de novas Viagens</h2>
-        <Form onSubmit={CreateTrip}>
+        <Form onSubmit={upDateForm}>
           <Input
             required
             name={"name"}
             placeholder="Nome"
             value={form.name}
             onChange={onChange}
+            pattern= { "^.{5,}"}
+            title={"O título deve ter no mínimo 5 caracteres"}
           />
-
-          <Input
-            required
-            name={"planet"}
-            placeholder="Planeta"
-            value={form.planet}
-            onChange={onChange}
-          />
+            
+          <Select
+          required
+          name={"planet"}
+          placeholder="Planeta"
+          value={form.planet}
+          onChange={onChange}
+          >{arrayPlanets}</Select>
           <Input
             required
             name={"date"}
@@ -82,6 +102,7 @@ function CreateTripPage() {
             value={form.date}
             onChange={onChange}
             type={"date"}
+            min={new Date()}
           />
           <Input
             required
@@ -89,6 +110,8 @@ function CreateTripPage() {
             placeholder="descrição"
             value={form.description}
             onChange={onChange}
+            pattern= { "^.{50,}"}
+            title={"O nome deve ter no mínimo 50 caracteres"}
           />
           <Input
             required

@@ -28,6 +28,17 @@ h1{
   padding-left: 36%;
   
 }
+@media (min-width: 375px) and (max-width: 667px) {
+        width: 100%;
+        height: 10vh;
+        font-size: 16px;
+        display: flex;
+        justify-content: flex-start;
+        
+        h1{
+          padding: 2%;
+        }
+    }
 `
 
 export const Button = styled.button`
@@ -42,7 +53,8 @@ export const Button = styled.button`
   margin-right: 5%;
   margin-left: 5%;
   box-shadow: rgb(0 0 0 / 50%) 0px 4px 8px 0px;
-    
+  cursor: pointer;
+
   :hover{
     background: #5c197e;
     border-color: #2a003f;
@@ -53,19 +65,41 @@ export const Button = styled.button`
   }
 `
 export const ContainerLogin = styled.form`
-border: 1px solid green;
-padding: 2%;
-margin-top: 4%;
+
+border-radius: 20px;
 width: 40%;
-height: 40%;
+height: 35%;
+border: 3px solid #2a003f;;
+margin: 3%;
 display: flex;
-align-items: center;
-justify-content: center;
 flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+padding: 2%;
+box-shadow: rgb(0 0 0 / 100%) 0px 4px 8px 0px;
 
 input{
+  border-radius: 5px;
 width: 94%;
-height: 12%;
+height: 8%;
 margin: auto;
+margin: 1px solid  #fae62d;
+
+:hover{
+box-shadow: rgb(0 0 0 / 60%) 0px 4px 8px 0px;
+
+    border-color: #fae62d;
+  }
 }
+
+
+
+
+
+@media (min-width: 375px) and (max-width: 667px) {
+        width: 90%;
+        height: 40vh;
+        margin-top: 20%;
+  
+    }
 `

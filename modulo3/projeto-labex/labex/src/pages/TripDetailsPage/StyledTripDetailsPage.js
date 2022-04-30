@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
 width: 99vw;
 height: 99vh;
+@media (min-width: 375px) and (max-width: 667px) {
+    width: 100%;
+    height: 100%;
+  }
 `
 export const Cont= styled.div`
 width: 100%;
@@ -24,9 +28,20 @@ letter-spacing: 4px;
 font-size: 1.7rem;
 padding: 1%;
 
-h1{
-  
-}
+
+@media (min-width: 375px) and (max-width: 667px) {
+    height: 10vh;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    h1 {
+      font-size: small;
+    }
+  }
+`
+export const Titulo = styled.h1`
+color: #2a003f;
+
 `
 
 export const Button = styled.button`
@@ -47,47 +62,105 @@ export const Button = styled.button`
     border-color: #2a003f;
     color: #fcc000;
     box-shadow: rgb(0 0 0 / 100%) 0px 4px 8px 0px;
-
-
+  }
+    @media (min-width: 375px) and (max-width: 667px) {
+    font-size: small;
+  
   }
 `
 export const ContainerCard = styled.div`
-border: 2px solid black;
-width: 90%;
-height: 38%;
-display: flex;
-overflow: auto;
-flex: none;
-flex-flow: row nowrap;
-gap: 1%;
-padding: 2%;
-:scroll{
-    width: 10%;
-    overflow-x: scroll; 
-}
+border: 2px solid #fcc000;
+  margin-bottom: 3%;
+  width: 100%;
+  height: 68%;
+  display: flex;
+  overflow: auto;
+  flex: none;
+  flex-flow: row nowrap;
+  gap: 1%;
+  padding: 2%;
+  overflow: hidden;
+  overflow-x: scroll;
+  background-color: #2a003f;
+
+  ::-webkit-scrollbar {
+    height: 10px;
+    border-radius: 400px;
+    padding: 400px;
+    box-decoration-break: clone;
+    position: relative;
+    margin: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #fae62d;
+  }
+  ::-webkit-scrollbar-track {
+    background: #2a003f;
+  }
+  h3 {
+    color: #2a003f;
+  }
+
+  @media (min-width: 375px) and (max-width: 667px) {
+    width: 99%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    align-items: flex-start;
+    background-color: #2a003f;
+  }
+
 `
 export const CardPendiente= styled.div`
-border: 1px solid pink;
-min-width: 35%;
-max-width: 35%;
-height: 90%;
-padding: 1%;
+ background-color: white;
+  border: 4px solid #2a003f;
+  padding: 5px;
+  border-radius: 5%;
+  min-width: 20%;
+  max-width: 20%;
+  height: 95%;
+  word-wrap: word-wrap;
+  overflow: hidden;
+  box-shadow: rgb(0 0 0 / 100%) 0px 4px 8px 0px;
+  margin: 1%;
+
+  overflow: auto;
+  flex: none;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+
+    box-decoration-break: clone;
+    position: relative;
+    margin: 3px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #fae62d;
+  }
+  ::-webkit-scrollbar-track {
+    background: #2a003f;
+  }
+  h3 {
+    color: #2a003f;
+  }
+
+  @media (min-width: 375px) and (max-width: 667px) {
+    min-width: 90%;
+    max-width: 20%;
+    height: 50%;
+  }
 `
 export const Aprovados= styled.div`
+  border: 5px solid  #2a003f;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-self: flex-start;
-  flex-direction: row;
-  margin-left: 10%;
-  
-  ul{
-    display: flex;
-    flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2%;
+  align-self: center;
 
-    p{
-      margin: 6px;
-      padding: 2px;
-    }
-  }
 `

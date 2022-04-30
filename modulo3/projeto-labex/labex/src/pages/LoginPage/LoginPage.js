@@ -37,7 +37,6 @@ function LoginPage() {
   //   const {name, value} = event.target
   //   setForm({...form, [name]:value});
   // }
-  console.log(form)
   return (
     <Container>
       <Cont>

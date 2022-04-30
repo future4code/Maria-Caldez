@@ -21,16 +21,7 @@ function ListTripsPage() {
 
 
 console.log(tripsList)
-  // const [tripsList, setTripsList] = useState([]);
 
-
-
-  // const getTripsData = () => {
-  //   axios
-  //     .get(`${BASE_URL}/trips`)
-  //     .then((response) => setTripsList(response.data))
-  //     .catch((err) => console.log(err.response.data.message));
-  // };
   // //hook
   // useEffect(() => {
   //   getTripsData();
@@ -46,9 +37,7 @@ console.log(tripsList)
     <Container>
       <Cont>
         <Header>
-          <Button onClick={() => goToApplicationPage(navigate)}>
-            Inscrever-me
-          </Button>
+            
           <h1>Labex-Trips</h1>
           <Button onClick={() => goToHomePage(navigate)}>Home</Button>
         </Header>

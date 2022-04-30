@@ -12,6 +12,7 @@ import {
   ContainerCard,
   CardPendiente,
   Aprovados,
+  Titulo,
 } from "./StyledTripDetailsPage";
 import CardCandidate from "./CardCandidate";
 
@@ -41,24 +42,73 @@ function TripDetailsPage() {
       });
   }
 
+  const decideCandidate = (candidateId,boolean) => {
+    const body = { "approve": boolean}
+    const token = localStorage.getItem("token");
+
+    axios
+      .put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/belen-shaw/trips/${params.id}/candidates/${candidateId}/decide`, body ,{
+        headers: {
+          auth: token,
+        },
+      } )
+
+      .then(() => {
+       
+        alert("deu certo");
+
+      })
+      .catch((error) => {
+        navigate(`/admin/trips/${params.id}`)
+        console.log(error.response);
+      });
+  };
+
+  const listCandidates = tripDetails && tripDetails.trip && tripDetails.trip.candidates.map((candidate) => {
+    return(
+        // <CardCandidate key={candidate.id} candidate={candidate}/>
+
+        <CardPendiente key={candidate.id}>
+      <p>
+        <strong>Nome: </strong>
+        {candidate.name}
+      </p>
+      <p>
+        <strong>Idade: </strong>
+        {candidate.age}
+      </p>
+      <p>
+        <strong>Profissão:</strong>
+        {candidate.profession}
+      </p>
+      <p>
+        <strong>País:</strong>
+        {candidate.country}
+      </p>
+      <p>
+        <strong>Texto:</strong>
+        {candidate.applicationText}
+      </p>{" "}
+      <div>
+        <Button onClick={()=>decideCandidate(candidate.id,true)}>Aprovar</Button> <Button onClick={()=>decideCandidate(candidate.id,false)}>Reprovar</Button>
+      </div>
+    </CardPendiente>
+    )
+  })
+
+  
   useEffect (()=>{
     getTripDetails()
   }, [listCandidates])
 
-  const listCandidates = tripDetails && tripDetails.trip && tripDetails.trip.candidates.map((candidate) => {
-    return(
-        <CardCandidate key={candidate.id} candidate={candidate}/>
-    )
-  })
 
 const listAprovados = tripDetails && tripDetails.trip && tripDetails.trip.approved.map((app) => {
   return(
-    <Aprovados key={app.id} >
-      <h3>Aprovados:</h3>
+    <span key={app.id} >
       <ul>
-      <p>{app.name}</p>
+      <h4>{app.name}</h4>
       </ul>
-     </Aprovados>
+     </span>
   )
 })
 
@@ -72,11 +122,15 @@ const titulo = tripDetails && tripDetails.trip && tripDetails.trip.planet
           <h1>Labex-Admin</h1>
           <Button onClick={()=>goToAdminHomePage(navigate)}>Voltar</Button>
         </Header>
-        <h2>{titulo}</h2>
+        <Titulo>{titulo}</Titulo>
         <ContainerCard>
         {listCandidates}
         </ContainerCard>
+        <Titulo>Aprovados</Titulo>
+        <Aprovados>
         {listAprovados}
+        </Aprovados>
+  
       </Cont>
     </Container>
   );

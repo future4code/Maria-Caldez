@@ -5,6 +5,7 @@ import { goBack } from "../../Routes/coordinator";
 import { BASE_URL } from "../../Constants/Urls";
 import { useParams } from "react-router-dom";
 import useForm from "../../hooks/UseForm";
+import paises from "../../json/paises.json";
 import {
   Container,
   Cont,
@@ -50,9 +51,13 @@ function ApplicationFormPage() {
    //hook
     useEffect(() => {
       aplyToTrip();
-    }, []);
+    }, [body]);
 
-   
+   const arrayCountry = paises.map ((pais)=>{
+     return(
+       <option key={pais.nome} value={pais.nome}>{pais.nome}</option>
+     )
+   })
 
   
   return (
@@ -70,6 +75,8 @@ function ApplicationFormPage() {
             placeholder="Nome"
             value={form.name}
             onChange={onChange}
+            pattern= { "^.{3,}"}
+            title={"O nome deve ter no mínimo 3 caracteres"}
           />
           <Input
             required
@@ -78,6 +85,7 @@ function ApplicationFormPage() {
             value={form.age}
             onChange={onChange}
             type={"number"}
+            min={"18"}
           />
           <Input
             required
@@ -85,6 +93,8 @@ function ApplicationFormPage() {
             placeholder="Texto Candidatura"
             value={form.applicationText}
             onChange={onChange}
+            pattern= { "^.{30,}"}
+            title={"O texto deve ter no mínimo 30  caracteres"}
           />
           <Input
             required
@@ -92,14 +102,14 @@ function ApplicationFormPage() {
             placeholder="Profissão"
             value={form.profession}
             onChange={onChange}
+            pattern= { "^.{10,}"}
+            title={"O texto deve ter no mínimo 10  caracteres"}
           />
-          <Input
+          <Select 
             required
             name={"country"}
-            placeholder="País"
             value={form.country}
-            onChange={onChange}
-          />
+            onChange={onChange}>{arrayCountry}</Select>
         <Button>Aplicar</Button>
 
         </Form>

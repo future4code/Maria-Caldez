@@ -4,6 +4,12 @@ import styled from "styled-components";
 export const Container = styled.div`
 width: 100vw;
 height: 99vh;
+/* 
+@media (min-width: 375px) and (max-width: 667px) {
+        width: 150vw;
+        height: 150vh;
+    } */
+
 `
 export const Cont = styled.div`
 width: 100%;
@@ -19,6 +25,14 @@ border-radius: 50%;
 height: 60%;
 width: 35%;
 margin-top: 7%;
+
+@media (min-width: 375px) and (max-width: 667px) {
+        width: 70%;
+        height: 40%;
+        margin: 20%;
+        margin-top: 30%;
+    }
+
 `
 
 export const ContainerButtons = styled.div`
@@ -26,6 +40,14 @@ export const ContainerButtons = styled.div`
   align-items: center;
   align-self: center;
   justify-content: space-around;
+
+  @media (min-width: 375px) and (max-width: 667px) {
+        width: 30vw;
+        height: 20vh;
+       padding-bottom: 40px ;
+      }
+
+
 `
 export const Buttons= styled.button`
   color: black;

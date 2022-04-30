@@ -40,7 +40,7 @@ function CardCandidate(props) {
 
   useEffect(() => {
     decideCandidate();
-  }, [upDate]);
+  }, []);
 
   return (
     <CardPendiente key={candidate.id}>

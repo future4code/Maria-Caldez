@@ -28,6 +28,19 @@ padding: 1%;
 h1{
   padding-left: 34%;
 }
+
+
+@media (min-width: 375px) and (max-width: 667px) {
+        width: 100%;
+        height: 10vh;
+        font-size: 17px;
+        display: flex;
+        justify-content: flex-start;
+        
+        h1{
+          padding: 1%;
+        }
+    }
 `
 export const Button = styled.button`
   color: black;
@@ -41,6 +54,7 @@ export const Button = styled.button`
   margin-left: 5%;
   box-shadow: rgb(0 0 0 / 100%) 0px 4px 8px 0px;
   padding: 1%;
+  cursor: pointer;
     
   :hover{
     background: #fcc000;
@@ -49,23 +63,46 @@ export const Button = styled.button`
   }
 `
 export const Form= styled.form`
+border-radius: 20px;
 width: 50%;
 height: 55%;
-border: 1px solid green;
-margin: 1%;
+border: 3px solid #2a003f;;
+margin: 3%;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: flex-start;
 padding: 2%;
+box-shadow: rgb(0 0 0 / 100%) 0px 4px 8px 0px;
+
+@media (min-width: 375px) and (max-width: 667px) {
+        width: 90%;
+        height: 70vh;
+  
+    }
+
 `
 export const Select= styled.select`
 width: 95%;
 height: 8%;
 margin: auto;
+
+:hover{
+box-shadow: rgb(0 0 0 / 60%) 0px 4px 8px 0px;
+
+    border-color: #fae62d;
+  }
 `
 export const Input= styled.input`
+border-radius: 5px;
 width: 94%;
 height: 8%;
 margin: auto;
+margin: solid  #2a003f;
+
+:hover{
+box-shadow: rgb(0 0 0 / 60%) 0px 4px 8px 0px;
+
+    border-color: #fae62d;
+  }
 `

@@ -12,14 +12,14 @@ const navigate= useNavigate ()
   const trip = props.trip;
 
   return (
-    <CardTrip>
+    <CardTrip onClick={()=>goToDetailsPage(navigate,trip.id)}>
+        <h3>{trip.planet}</h3>
+        <h2>Click para accesar as informações dos candidatos</h2>
+
         <h4>{trip.name}</h4>
         <p>{trip.description}</p>
-        <p>{trip.planet}</p>
         <p><strong>Duração:</strong> {trip.durationInDays}</p>
         <p><strong>Data:</strong> {trip.date}</p>
-        <Button onClick={()=>goToDetailsPage(navigate,trip.id)}>Detalhes</Button>
-        <Button>Apagar</Button>
     </CardTrip>
   );
 }

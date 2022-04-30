@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { goToHomePage } from "../Routes/coordinator";
+import { goToLoginPage } from "../Routes/coordinator";
 
 
 const useProtect = () =>{
@@ -12,7 +12,7 @@ const useProtect = () =>{
 
         if (token===null){
             alert("Usuario sem Login")
-            goToHomePage(navigate)
+            goToLoginPage(navigate)
         }
     })
 }

@@ -30,3 +30,9 @@ export const goToCreatePage = (navigate) => {
 export const goBack = (navigate) => {
   navigate(-1)
 }
+
+
+export const gologOut = (navigate) =>{
+  window.localStorage.clear("token")
+  navigate("/login")
+} 
